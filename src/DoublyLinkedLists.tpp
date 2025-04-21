@@ -34,8 +34,6 @@ int DoublyLinkedLists<T>::getSize() {
     return count;
 }
 
-
-
 template<typename T>
 T DoublyLinkedLists<T>::front() {
     return head->val;
@@ -49,7 +47,7 @@ T DoublyLinkedLists<T>::back() {
 template<typename T>
 void DoublyLinkedLists<T>::push_front(T val) {
     auto *newNode = new Node<T>(val);
-    if(head == nullptr) {
+    if(empty()) {
         head = newNode;
         tail = newNode;
     } else {
@@ -62,7 +60,7 @@ void DoublyLinkedLists<T>::push_front(T val) {
 template<typename T>
 void DoublyLinkedLists<T>::push_back(T val) {
     auto *newNode = new Node<T>(val);
-    if(head == nullptr) {
+    if(empty()) {
         head = newNode;
         tail = newNode;
     } else {
@@ -75,7 +73,7 @@ void DoublyLinkedLists<T>::push_back(T val) {
 template<typename T>
 T DoublyLinkedLists<T>::pop_front() {
 
-    if(!head){
+    if(empty()){
         throw std::out_of_range("Lista vacia");
     }
 
@@ -97,7 +95,7 @@ T DoublyLinkedLists<T>::pop_front() {
 
 template<typename T>
 T DoublyLinkedLists<T>::pop_back() {
-    if(!head){
+    if(empty()){
         throw std::out_of_range("Lista vacia");
     }
 
@@ -236,7 +234,7 @@ T DoublyLinkedLists<T>::operator[](int index){
 template<typename T>
 void DoublyLinkedLists<T>::reverse() {
 
-    if(!head){
+    if(empty()){
         throw std::out_of_range("Lista vacia");
     }
 
